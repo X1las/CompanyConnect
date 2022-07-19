@@ -52,8 +52,9 @@ class Source:
                 result = i.search(target, data=data)
                 if result:
                     if original:
-                        self.logger.log("Found target with ownership of: " +
-                                        str(result["upper"]*100) + result["tname"], priority=0)
+                        if result["upper"] != 0:
+                            self.logger.log("Found target with ownership of: \n" +
+                                        str(result["upper"]*100) + " " + result["tname"], priority=0)
                     else:
                         return result
 
